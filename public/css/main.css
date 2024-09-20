@@ -1,0 +1,25 @@
+:root {
+    --primary-bg-color: #333;
+    --primary-text-color: #fff;
+    --secondary-bg-color: #b5b5b5;
+    --secondary-text-color: #333;
+    --link-color: #fff;
+    --link-hover-color: #ddd;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100vh;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--secondary-bg-color);
+    color: var(--secondary-text-color);
+}
+a {
+    text-decoration: none;
+}
