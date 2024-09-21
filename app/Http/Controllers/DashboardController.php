@@ -10,6 +10,11 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         $page = $request->query('page', null); // Sprawdź, czy parametr 'page' jest obecny
+        
+        if ($page === 'search-employee' && !View::exists("dashboard.$page")) {
+            return "Widok nie istnieje"; // To pomoże Ci zdiagnozować problem
+        }
+        
 
         // Jeśli parametr 'page' nie jest ustawiony, przekieruj na 'page=main'
         if (is_null($page)) {

@@ -1,6 +1,7 @@
 :root {
-    --primary-bg-color: #333;
+    --primary-bg-color: #ecf0f1;
     --primary-text-color: #fff;
+    
     --secondary-bg-color: #b5b5b5;
     --secondary-text-color: #333;
     --link-color: #fff;
@@ -54,3 +55,17 @@ input:focus, button:focus {
     outline: none;
     border: none;
 }
+
+/* Usuwanie strzałek w Chrome, Safari, Edge i Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Usuwanie strzałek w Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
