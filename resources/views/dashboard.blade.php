@@ -10,15 +10,33 @@
         <!-- Menu -->
         <ul class="menu">
             <li class="menu-item">
-                <a href="{{ route('dashboard', ['page' => 'main']) }}">
+                <a href="{{ url('dashboard?page=dashboard') }}">
                     <i class="icon">🏠</i>
                     <span class="menu-text">Dashboard</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a href="{{ route('dashboard', ['page' => 'add-employee']) }}">
+                <a href="{{ url('dashboard?page=documents') }}">
+                    <i class="icon">📄</i>
+                    <span class="menu-text">Dokumenty</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="{{ url('dashboard?page=settings') }}">
+                    <i class="icon">⚙️</i>
+                    <span class="menu-text">Ustawienia</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="{{ url('dashboard?page=add-employee') }}">
                     <i class="icon">➕</i>
                     <span class="menu-text">Dodaj Pracownika</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="{{ url('dashboard?page=search-employee') }}">
+                    <i class="icon">🔍</i>
+                    <span class="menu-text">Szukaj Pracownika</span>
                 </a>
             </li>
             <li class="menu-item">
@@ -36,18 +54,16 @@
     <!-- Main content -->
     <div class="content" id="content">
         @if(request('page'))
-            @include("dashboard." . request('page'))  <!-- Upewnij się, że widok istnieje -->
+            @include(request('page'))
         @else
-            <p>Error: Skontaktuj się z administratorem, i podaj mu nr 11541</p>
+            <h1>Dashboard</h1>
+            <p>To jest dashboard.</p>
         @endif
     </div>
 </div>
 
 
 <style>
-    a:hover{
-        color: green;
-    }
     /* Ogólne style */
     .wrapper {
         display: flex;

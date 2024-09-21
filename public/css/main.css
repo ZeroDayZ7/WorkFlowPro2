@@ -27,6 +27,7 @@ body {
 }
 a {
     text-decoration: none;
+    color: white;
 }
 .login-form {
     flex-grow: 1;

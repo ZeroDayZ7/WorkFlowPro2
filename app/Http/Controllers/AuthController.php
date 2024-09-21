@@ -21,7 +21,7 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->intended('/dashboard'); // Po udanym logowaniu, przekieruj użytkownika
+            return redirect()->intended('/dashboard?page=main'); // Po udanym logowaniu, przekieruj użytkownika
         }
 
         return back()->withErrors([
