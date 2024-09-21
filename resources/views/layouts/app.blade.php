@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config('app.name') }}</title>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+        crossorigin="anonymous">
+    </script>
 </head>
 
 <body>
 
-    <div class="app">
+    <div id="app">
         @yield('content') <!-- To miejsce na treść widoku -->
 
         <footer>
@@ -18,7 +22,7 @@
         </footer>
     </div>
 
-    
+
 </body>
 
 </html>

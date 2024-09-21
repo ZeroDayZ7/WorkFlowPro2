@@ -1,33 +1,21 @@
-@extends('layouts.app')
-@section('content')
-
 <div class="wrapper">
     <!-- Sidebar -->
     <div id="sidebar" class="sidebar">
         <button id="toggleSidebar" class="toggle-btn">
             <span class="arrow">⮞</span>
         </button>
-        <!-- Menu -->
         <ul class="menu">
-            <li class="menu-item" data-content="dashboard">
+            <li class="menu-item" data-content="TUTAJ TREŚĆ DASHBOARDU">
                 <i class="icon">🏠</i>
-                <span class="menu-text">Dashboard</span>
+                {{-- <span class="menu-text">Dashboard</span> --}}
             </li>
-            <li class="menu-item" data-content="documents">
+            <li class="menu-item" data-content="TUTAJ TREŚĆ DOKUMENTÓW">
                 <i class="icon">📄</i>
                 <span class="menu-text">Dokumenty</span>
             </li>
-            <li class="menu-item" data-content="settings">
+            <li class="menu-item" data-content="TUTAJ TREŚĆ USTAWIEŃ">
                 <i class="icon">⚙️</i>
                 <span class="menu-text">Ustawienia</span>
-            </li>
-            <li class="menu-item" data-content="add-employee">
-                <i class="icon">➕</i>
-                <span class="menu-text">Dodaj Pracownika</span>
-            </li>
-            <li class="menu-item" data-content="search-employee">
-                <i class="icon">🔍</i>
-                <span class="menu-text">Szukaj Pracownika</span>
             </li>
             <li class="menu-item">
                 <i class="icon">
@@ -129,43 +117,25 @@
 </style>
 
 <script>
+    // Skrypt do zmiany treści w divie .content
     document.querySelectorAll('.menu-item').forEach(item => {
         item.addEventListener('click', function() {
-            const contentType = this.getAttribute('data-content');
-            fetch(`/get-content/${contentType}`)
-                .then(response => {
-                    if (!response.ok) throw new Error('Network response was not ok');
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById('content').innerHTML = data;
-                })
-                .catch(error => {
-                    document.getElementById('content').innerHTML = '<p>Wystąpił błąd: ' + error.message + '</p>';
-                });
+            const content = this.getAttribute('data-content');
+            document.getElementById('content').innerHTML = content;
         });
     });
 
     document.getElementById('toggleSidebar').addEventListener('click', function() {
-        document.getElementById('sidebar').classList.toggle('collapsed');
+        var sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('collapsed');
     });
 
-    // Obsługa formularza dodawania pracownika
-    $(document).on('submit', '#addEmployeeForm', function(e) {
-        e.preventDefault();
-        $.ajax({
-            url: '/employees',
-            method: 'POST',
-            data: $(this).serialize(),
-            success: function(response) {
-                $('#addEmployeeMessage').text(response.success);
-                $('#addEmployeeForm')[0].reset(); // Resetowanie formularza
-            },
-            error: function(xhr) {
-                $('#addEmployeeMessage').text('Wystąpił błąd: ' + xhr.responseText);
-            }
-        });
+
+
+
+
+    document.getElementById('toggleSidebar').addEventListener('click', function() {
+        var sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('collapsed');
     });
 </script>
-
-@endsection

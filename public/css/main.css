@@ -11,8 +11,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-html, body {
-    height: 100vh;
+html, body, #app {
+    /* height: 100vh; */
+    height: 100%;
 }
 body {
     font-family: Arial, sans-serif;
@@ -20,6 +21,35 @@ body {
     background-color: var(--secondary-bg-color);
     color: var(--secondary-text-color);
 }
+#app {
+    display: flex;
+    flex-direction: column;
+}
 a {
     text-decoration: none;
+}
+.login-form {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* .login-form-in{
+    width: 220px;
+} */
+footer {
+    text-align: center; /* Optional: to center footer content */
+    padding: 5px;
+}
+form *{
+    width: 100%;
+}
+input, button {
+    padding: 4px;
+    border: none;
+}
+input:focus, button:focus {
+    outline: none;
+    border: none;
 }
